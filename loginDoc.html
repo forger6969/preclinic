@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./loginDoc.css">
+    <link rel="shortcut icon" href="./logo/Icon (1).svg" type="image/x-icon">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Preclinic - doctor login</title>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-left">
+
+            <img data-aos="fade-down" class="login-left-logo" src="./logo/Logo Container.svg" alt="">
+
+            <form data-aos="zoom-out-right" id="login-form" action="">
+
+                <img class="mailSvg" src="./icons/mail.svg" alt="">
+                <img class="lockSvg" src="./icons/lock.svg" alt="">
+
+                <div class="href-btns">
+                    <button id="doctor" type="button">Doctor</button>
+                    <button id="patient" type="button">Patient</button>
+                </div>
+
+                <p class="login-form-item">Sign In</p>
+                <p class="login-form-item-text">Please enter below details to access the dashboard</p>
+
+                <label for="email">Email Address</label>
+                <input id="email" placeholder="Enter Email Address" type="text">
+
+                <label for="password">Password</label>
+                <input id="password" placeholder="************" type="password">
+
+                <button id="loginBtn" type="button">Login</button>
+
+
+
+            </form>
+
+        </div>
+
+        <div class="login-right">
+            <img data-aos="zoom-out-left" class="login-right-img" src="./backrounds/Image Container.png" alt="">
+        </div>
+
+    </div>
+
+
+    <div id="overlay"></div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./loginDoc.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

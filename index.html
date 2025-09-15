@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./logo/Icon (1).svg" type="image/x-icon">
+    <title>Preclinic - register</title>
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <div class="register-left">
+            <img data-aos="zoom-out-right" class="register-left-img" src="./backrounds/Illustration Section.svg" alt="">
+        </div>
+
+        <div class="register-right">
+
+            <img data-aos="fade-down" class="register-right-logo" src="./logo/Logo Container.svg" alt="">
+
+            <form data-aos="zoom-out-left" id="reg_form">
+                <img class="userSvg" src="./icons/user.svg" alt="svg">
+                <img class="emailSvg" src="./icons/mail.svg" alt="">
+
+                <img class="lockSvg1" src="./icons/lock.svg" alt="">
+                <img class="lockSvg2" src="./icons/lock.svg" alt="">
+
+
+                <p class="form-item">Register</p>
+
+                <p class="form-item-text">Please enter your details to create account</p>
+
+                <label for="name">Full Name</label>
+                <input id="name" placeholder="Enter Name" type="text" required>
+
+                <label for="email">Email Adress</label>
+                <input id="email" placeholder="Enter Email Adress" type="text" required>
+
+                <label for="password">Password</label>
+                <input placeholder="**********" id="password" type="password" required>
+
+                <label for="confirm">Confirm Password</label>
+                <input id="confirm" placeholder="**********" type="password" required>
+
+                <p class="privacy_policy"><button type="button" id="privacyBtn"></button> I agree to the <span><a
+                            href="./privacy.html" target="_blank">Terms of
+                            Servise & Privacy Policy</a></span> </p>
+
+                <button id="register" type="button">Register</button>
+
+                <p class="login-href">Already have an account yet? <span><a href="./login.html">Login</a></span></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

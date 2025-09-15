@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "inter";
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    gap: 200px;
+}
+
+.login-left-img {
+    height: 100vh;
+    object-fit: cover;
+    width: 700px;
+}
+
+#login-form {
+    width: 448px;
+    height: 531px;
+    border: 1px solid #E7E8EB;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 40px 40px;
+    gap: 10px;
+    position: relative;
+}
+
+.login-form-item {
+    font-weight: 600;
+    font-size: 20px;
+    color: #0A1B39;
+    text-align: center;
+}
+
+.login-form-item-text {
+    font-weight: 400;
+    font-size: 14px;
+    color: #6C7688;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 20px;
+}
+
+#login-form input {
+    width: 368px;
+    height: 36px;
+    border: 1px solid #E7E8EB;
+    border-radius: 6px;
+    padding-left: 30px;
+    margin: 0 auto;
+    box-shadow: #E7E8EB 0 1px 1px 0;
+}
+
+#login-form input:focus {
+    outline: none;
+    background: white;
+}
+
+#login-form label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #0A1B39;
+    text-align: start;
+}
+
+#loginFormBtn {
+    width: 368px;
+    height: 38px;
+    background-color: #2E37A4;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+    margin-top: 15px;
+
+    animation-name: loginbtn;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+
+    transition: 300ms all ease;
+}
+
+
+#loginFormBtn:hover {
+    transition: 300ms all ease;
+    transform: scale(1.05);
+    animation-name: none;
+}
+
+#loginFormBtn:active {
+    transition: 300ms all ease;
+    transform: scale(0.98);
+    animation-name: none;
+}
+
+
+@keyframes loginbtn {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+.register-href {
+    font-weight: 400;
+    font-size: 14px;
+    color: #0A1B39;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.register-href span a {
+    color: #2E37A4;
+    font-weight: 500;
+}
+
+.login-right-logo {
+    margin: 0 auto;
+    display: flex;
+    padding-bottom: 40px;
+}
+
+.mailSvg {
+    position: absolute;
+    top: 250.5px;
+    left: 48px;
+}
+
+.lockSvg {
+    position: absolute;
+    left: 48px;
+    top: 323.5px;
+}
+
+.href-btns button {
+    width: 120px;
+    background-color: white;
+    height: 38px;
+    border-radius: 6px;
+    border: none;
+}
+
+#patient.remove {
+    box-shadow: none;
+}
+
+#patient {
+    box-shadow: 0 3px 2px 0 #E7E8EB;
+}
+
+#doctor.active {
+    box-shadow: 0 3px 2px 0 #E7E8EB;
+}
+
+.href-btns {
+    margin: 20px auto;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    z-index: 9999;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
