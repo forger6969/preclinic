@@ -1,35 +1,15 @@
-let namesInput = document.getElementById(`name`)
-let emailInput = document.getElementById(`email`)
-let passwordInput = document.getElementById(`password`)
-let passwordConfirm = document.getElementById(`confirm`)
+const namesInput = document.getElementById(`name`)
+const emailInput = document.getElementById(`email`)
+const passwordInput = document.getElementById(`password`)
+const passwordConfirm = document.getElementById(`confirm`)
 
 const privacy = document.querySelector(`.privacy`)
 
 let registerBtn = document.getElementById(`register`)
 let privacybtn = document.getElementById(`privacyBtn`)
 
-let userReg = []
 
-
-let logUsers = {
-    names: "Alex",
-    email: "alex@gmail.com",
-    password: "alex123",
-    role: "patient"
-}
-
-let logDoctor = {
-    names: "Dr.Johny Sins",
-    email: "DrJohn@gmail.com",
-    password: "John123",
-    role: "doctor"
-}
-
-userReg.push(logUsers)
-userReg.push(logDoctor)
-
-localStorage.setItem("userReg", JSON.stringify(userReg))
-
+let userss = JSON.parse(localStorage.getItem("userReg"))
 
 
 function validatePasswords() {
@@ -71,7 +51,6 @@ privacybtn.addEventListener(`click`, () => {
 
 registerBtn.addEventListener(`click`, () => {
 
-    let regUsers = JSON.parse(localStorage.getItem(`userReg`)) || []
 
 
     let nameValue = namesInput.value
@@ -79,7 +58,7 @@ registerBtn.addEventListener(`click`, () => {
     let passwordValue = passwordInput.value
     let passwordConfirmValue = passwordConfirm.value
 
-    userReg.forEach(user => {
+    userss.forEach(user => {
         if (emailInput.value === user.email) {
 
             alert(`Этот mail уже зарегестрирован!`)
@@ -98,16 +77,19 @@ registerBtn.addEventListener(`click`, () => {
             names: nameValue,
             email: emailValue,
             password: passwordValue,
-            role: "patient"
+            role: "patient",
+            image: "./usersAvatar/defolt.png"
         }
 
-        regUsers.push(newUser)
+        userss.push(newUser)
+
+        console.log(userss)
 
 
-        localStorage.setItem("userReg", JSON.stringify(regUsers));
+        localStorage.setItem("userReg", JSON.stringify(userss));
 
         console.log(`Сохранено`);
-        console.table(regUsers)
+
 
         namesInput.value = ``
         emailInput.value = ``

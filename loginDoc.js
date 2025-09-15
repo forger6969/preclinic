@@ -16,11 +16,14 @@ patientBtn.addEventListener(`click`, () => {
     }, 500);
 });
 
+let users = JSON.parse(localStorage.getItem("userReg"))
+
 loginBtn.addEventListener(`click`, () => {
 
-    let users = JSON.parse(localStorage.getItem("userReg"))
-
     let doctor = users.find(user => user.role === "doctor" && user.email === email.value)
+
+    console.log(doctor);
+
 
     if (doctor && doctor.password === password.value) {
 
@@ -39,4 +42,3 @@ loginBtn.addEventListener(`click`, () => {
     }
 
 })
-

@@ -6,6 +6,11 @@ const doctorBtn = document.getElementById(`doctor`)
 const patientBtn = document.getElementById(`patient`)
 const overLay = document.getElementById(`overlay`)
 
+let users = JSON.parse(localStorage.getItem("userReg"))
+
+console.log(users);
+
+
 function checkEmail() {
     users.forEach(user => {
 
@@ -37,7 +42,6 @@ function checkPassword() {
 
 }
 
-let users = JSON.parse(localStorage.getItem("userReg"))
 
 loginBtn.addEventListener(`click`, () => {
 
