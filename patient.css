@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "inter";
+}
+
+.container {
+    max-width: 100%;
+    width: 95%;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #eff2f5;
+    transition: 300ms all ease;
+}
+
+.header {
+    height: 62px;
+    width: 100%;
+    background-color: white;
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+}
+
+.header-right-btn {
+    background-color: transparent;
+    border: 1px solid #E7E8EB;
+    border-radius: 20px;
+    width: 35px;
+    height: 35px;
+    padding-top: 2px;
+    box-shadow: 0 1px 1px 0 #E7E8EB;
+    margin-right: 15px;
+}
+
+.main-1-item {
+    font-weight: 600;
+    font-size: 30px;
+    color: #0A1B39;
+}
+
+#appointmentBtn {
+    background-color: #2E37A4;
+    border-radius: 6px;
+    width: 161px;
+    height: 36px;
+    font-weight: 600;
+    font-size: 13px;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 500ms all ease;
+}
+
+#appointmentBtn:hover {
+    transition: 300ms all ease;
+    background-color: transparent;
+    border: #2E37A4 1px solid;
+    color: #2E37A4;
+}
+
+.appointSvg {
+    fill: white;
+}
+
+#appointmentBtn:hover .appointSvg {
+    fill: #2E37A4;
+}
+
+#appointmentBtn:active {
+    border: #F5F6F8 1px solid;
+    color: #6C7688;
+    transition: 500ms all ease;
+}
+
+
+.items-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
+.doctorsBox {
+    width: 400px;
+    height: fit-content;
+    background-color: white;
+    border: 2px solid #E7E8EB;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px 0 #E7E8EB;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.doctorsImg {
+    width: 50px;
+    border-radius: 100%;
+}
+
+.doctorsDiv {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.doctorsDiv p {
+    padding-top: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #0A1B39;
+}
+
+.doctorsDiv p span {
+    font-weight: 400;
+    font-size: 13px;
+    color: #6C7688;
+    padding-top: 2px;
+}
+
+.bookings {
+    background-color: #e04f1645;
+    border: 2px solid #E04F16;
+    width: 86px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.doctorInfo {
+    display: flex;
+    gap: 10px;
+}
+
+.bookingDiv {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.bookings p {
+    font-weight: 500;
+    font-size: 12px;
+    color: #E04F16;
+    padding-bottom: 6.5px;
+}
+
+.main-wrapper-2 {
+    padding: 50px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.appointmentBox {
+    width: 541px;
+    max-width: 0%;
+    height: 0;
+    border: #E7E8EB 1px solid;
+    border-radius: 6px;
+    background-color: white;
+    position: absolute;
+    transform: translate(-50%, -40%);
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transition: 300ms all ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appointmentBox.active {
+    height: 589px;
+    max-width: 100%;
+    opacity: 1;
+    transition: 300ms all ease;
+}
+
+.appointment-text {
+    font-weight: 600;
+    font-size: 20px;
+    color: #051321;
+    border-bottom: #E7E8EB 1px solid;
+    padding: 20px;
+}
+
+#selectDoctor {
+    width: 460px;
+    height: 36px;
+    border: #E7E8EB 1px solid;
+    border-radius: 6px;
+    background-color: transparent;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto;
+    transition: 300ms all ease;
+}
+
+#selectDoctor.active img {
+    transform: rotate(180deg);
+    transition: 300ms all ease;
+}
+
+.doctorBoxx {
+    width: 80%;
+    background-color: #ffffff;
+    height: fit-content;
+    margin: 0 auto;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    transition: 300ms all ease;
+}
+
+.doctorBoxx:hover {
+    transform: translateY(-5px);
+}
+
+.doctorBoxx img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.doctorName {
+    font-weight: 500;
+    font-size: 16px;
+    color: #051321;
+    padding-top: 10px;
+}
+
+.doctorName span {
+    color: gray;
+    font-size: 15px;
+}
+
+.doctorsListBox {
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 6px;
+    background-color: rgb(239, 236, 236);
+    padding: 20px;
+    max-height: 0%;
+    height: 0px;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: scroll;
+    transition: 300ms all ease;
+    position: absolute;
+    transform: translate(-50%, -30%);
+    top: 50%;
+    left: 50%;
+}
+
+.doctorsListBox.active {
+    height: 370px;
+    max-height: 100%;
+    opacity: 1;
+    transition: 300ms all ease;
+}
+
+.doctorsListBox::-webkit-scrollbar {
+    display: none;
+}
+
+.appointment-close-btn {
+    position: absolute;
+    background-color: transparent;
+    width: 30px;
+    border: none;
+    left: 500px;
+    top: 18px;
+}
+
+.appointment-close-btn img {
+    width: 100%;
+}
+
+#appointmentDate {
+    background-color: transparent;
+    border: 1px solid #E7E8EB;
+    border-radius: 6px;
+    width: 460px;
+    height: 36px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#appointmentTime {
+    background-color: transparent;
+    border: 1px solid #E7E8EB;
+    border-radius: 6px;
+    width: 460px;
+    height: 36px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+#appointmentName {
+    background-color: transparent;
+    border: 1px solid #E7E8EB;
+    border-radius: 6px;
+    width: 460px;
+    height: 36px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#appointmentDescribe {
+    background-color: transparent;
+    border: 1px solid #E7E8EB;
+    border-radius: 6px;
+    width: 460px;
+    height: 36px;
+    padding: 20px;
+}
+
+#appointmentApproved {
+    background-color: #2E37A4;
+    width: fit-content;
+    height: 32px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 70px;
+    margin-left: 330px;
+}

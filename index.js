@@ -74,6 +74,7 @@ registerBtn.addEventListener(`click`, () => {
 
 
         let newUser = {
+            id: userss.length + 1,
             names: nameValue,
             email: emailValue,
             password: passwordValue,

@@ -1,5 +1,6 @@
 let InitDoctors = [
     {
+        id: 1,
         names: "Dr.Johny Sins",
         type: "Ginecolog",
         image: "./doctorsAvatar/JohnSins.jpg",
@@ -8,6 +9,7 @@ let InitDoctors = [
         password: "johnLisiy"
     },
     {
+        id: 2,
         names: "Dr.Emily Carter",
         type: "Pediatrician",
         image: "./doctorsAvatar/EmilyCarter.png",
@@ -16,6 +18,7 @@ let InitDoctors = [
         password: "emily123"
     },
     {
+        id: 3,
         names: "Dr.James Anderson",
         type: "Cardiologist",
         image: "./doctorsAvatar/JamesAnderson.png",
@@ -24,6 +27,7 @@ let InitDoctors = [
         password: "james123"
     },
     {
+        id: 4,
         names: "Dr.Michael Roberts",
         type: "Psychiatrist",
         image: "./doctorsAvatar/MichaelRoberts.png",
@@ -32,6 +36,7 @@ let InitDoctors = [
         password: "michael123"
     },
     {
+        id: 5,
         names: "Dr.Sophia Mitchell",
         type: "Surgeon",
         image: "./doctorsAvatar/SophiaMitchell.png",
@@ -43,7 +48,7 @@ let InitDoctors = [
 
 let existingUsers = JSON.parse(localStorage.getItem("userReg")) || []
 
-InitDoctors.forEach(doc => {
+InitDoctors.forEach((doc) => {
     if (!existingUsers.some(u => u.email === doc.email)) {
         existingUsers.push(doc)
     }

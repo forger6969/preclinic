@@ -8,6 +8,8 @@ const overLay = document.getElementById(`overlay`)
 
 let users = JSON.parse(localStorage.getItem("userReg"))
 
+
+
 console.log(users);
 
 
@@ -49,7 +51,7 @@ loginBtn.addEventListener(`click`, () => {
 
         if (emailLogin.value.trim() === user.email && passwordLogin.value.trim() === user.password) {
 
-            // window.location.href = ``
+            window.location.href = "./patient.html"
 
             alert(`Успешный вход`)
 
