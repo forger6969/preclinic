@@ -86,14 +86,14 @@ registerBtn.addEventListener(`click`, () => {
     userss.forEach(user => {
         if (emailInput.value === user.email) {
 
-            showNotification("This email is already registered" , "red")
+            showNotification("This email is already registered", "red")
 
         }
     })
 
     if (namesInput.value === "" || emailInput.value === "" || passwordInput.value === "" || passwordConfirm.value === "") {
 
-        alert(`Заполните все поля`)
+        showNotification("fill in all fields", "red")
 
     } else if (passwordInput.value === passwordConfirm.value && privacybtn.classList.contains(`active`)) {
 
