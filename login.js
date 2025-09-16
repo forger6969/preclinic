@@ -10,6 +10,7 @@ let users = JSON.parse(localStorage.getItem("userReg"))
 
 
 
+
 console.log(users);
 
 
@@ -32,6 +33,31 @@ function checkEmail() {
 
 }
 
+function showNotification(message, color, duration = 3000) {
+
+
+    const notification = document.getElementById("notification");
+    const text = document.getElementById("notificationText");
+    const progressBar = document.getElementById("progressBar");
+
+    text.textContent = message;
+    notification.classList.add("show");
+    progressBar.style.width = "0%";
+    notification.style.backgroundColor = color
+
+    setTimeout(() => {
+        progressBar.style.transition = `width ${duration}ms linear`;
+        progressBar.style.width = "100%";
+    }, 10);
+
+    // Скрываем уведомление
+    setTimeout(() => {
+        notification.classList.remove("show");
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0%";
+    }, duration);
+}
+
 function checkPassword() {
 
     users.forEach(user => {
@@ -47,23 +73,47 @@ function checkPassword() {
 
 loginBtn.addEventListener(`click`, () => {
 
-    users.forEach(user => {
+    const userAll = users.find(u => u.role === "patient")
+    const user = users.find(u => u.email === emailLogin.value.trim());
 
-        if (emailLogin.value.trim() === user.email && passwordLogin.value.trim() === user.password) {
 
+    console.log(user);
+
+
+
+    if (emailLogin.value !== userAll.email) {
+        emailLogin.style.border = `1px solid red`
+
+        showNotification("Ошибка!", "red")
+
+
+
+    } else if (passwordLogin.value === user.password) {
+
+        setTimeout(() => {
             window.location.href = "./patient.html"
+        }, 3000);
 
-            alert(`Успешный вход`)
+        showNotification("Успешный вход!")
 
-
-
-        } else if (emailLogin.value !== user.email) {
-            emailLogin.style.border = `1px solid red`
-        } else if (passwordLogin.value !== user.password) {
-            passwordLogin.style.border = `1px solid red`
+        let currentUser = {
+            names: user.names,
+            email: user.email,
+            role: user.role,
+            id: user.id,
+            password: user.password,
+            image: user.image
         }
 
-    })
+        localStorage.setItem("currentUser", JSON.stringify(currentUser))
+
+
+
+    } else if (passwordLogin.value !== user.password) {
+        passwordLogin.style.border = `1px solid red`
+    }
+
+
 
 })
 
@@ -99,3 +149,6 @@ doctorBtn.addEventListener(`click`, () => {
 
 
 });
+
+let saveee = JSON.parse(localStorage.getItem("currentUser"))
+console.log(saveee);

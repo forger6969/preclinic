@@ -42,6 +42,12 @@ body {
     padding-top: 2px;
     box-shadow: 0 1px 1px 0 #E7E8EB;
     margin-right: 15px;
+    cursor: pointer;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
 }
 
 .main-1-item {
@@ -171,7 +177,7 @@ body {
 }
 
 .appointmentBox {
-    width: 541px;
+    width: 0;
     max-width: 0%;
     height: 0;
     border: #E7E8EB 1px solid;
@@ -186,13 +192,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    pointer-events: none;
 }
 
 .appointmentBox.active {
+    width: 541px;
     height: 589px;
     max-width: 100%;
     opacity: 1;
     transition: 300ms all ease;
+
+    pointer-events: auto;
 }
 
 .appointment-text {
@@ -354,4 +365,176 @@ body {
     font-size: 16px;
     margin-top: 70px;
     margin-left: 330px;
+}
+
+.notification {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background-color: #4caf50;
+    /* зелёный */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    min-width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.notification.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 0%;
+    margin-top: 8px;
+    border-radius: 2px;
+    transition: width 0.3s linear;
+}
+
+.exitDoor {
+    padding-top: 2px;
+    width: 55%;
+}
+
+.avatar img {
+    width: 35px;
+    border-radius: 100%;
+    border: 1px solid #E7E8EB;
+}
+
+.main-wrapper-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#patient-avatar {
+    width: 850px;
+    height: 373px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #E7E8EB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.patient-avatar-left {
+    border-right: 1px solid #E7E8EB;
+    width: 350px;
+    height: 100%;
+}
+
+.patient-right-avatar-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-right: 30px;
+}
+
+.patient-right-avatar-box img {
+    width: 200px;
+    border-radius: 100%;
+    border: 2px solid #E7E8EB;
+}
+
+.avatar-name {
+    font-weight: 500;
+    font-size: 20px;
+    color: #0A1B39;
+}
+
+.avatar-id {
+    font-weight: 400;
+    font-size: 17px;
+    color: gray;
+}
+
+#chartContainer {
+    height: 800px;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    transition: 300ms all ease;
+}
+
+#appointmentsChart {
+    height: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    transition: 300ms all ease;
+}
+
+.main.active {
+    transition: 300ms all ease;
+    filter: blur(10px);
+}
+
+body.active {
+    overflow: hidden;
+}
+
+.avatar-left-item {
+    font-weight: 500;
+    font-size: 20px;
+    border-bottom: 1px solid #E7E8EB;
+    padding: 20px;
+}
+
+.appointmentsBox {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    padding: 10px;
+    gap: 20px;
+    overflow: scroll;
+}
+
+.appointmentsBox::-webkit-scrollbar {
+    display: none;
+}
+
+.appointmentsBox div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: #E7E8EB;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.appointmentsBox div img {
+    width: 50px;
+    border-radius: 100%;
+}
+
+.appOcheredText {
+    font-weight: 500;
+    font-size: 18px;
+    color: #0A1B39;
+}
+
+.appOcheredText span {
+    color: gray;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.date {
+    font-size: 13px;
+    color: gray;
+    padding-bottom: 17px;
+    padding-left: 10px;
 }

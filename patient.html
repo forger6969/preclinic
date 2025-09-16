@@ -23,7 +23,8 @@
                     <button class="header-right-btn"><img src="./icons/Calendar Icon.svg" alt=""></button>
                     <button class="header-right-btn"><img src="./icons/Settings Icon.svg" alt=""></button>
                     <button class="header-right-btn"><img src="./icons/Notification Icon.svg" alt=""></button>
-
+                    <a href="./login.html"><button class="header-right-btn"><img class="exitDoor"
+                                src="./icons/door-exit-svgrepo-com.svg" alt=""></button></a>
 
 
                 </div>
@@ -64,40 +65,86 @@
 
                     </div>
 
-                </div>
+                    <div class="main-2-right">
 
+                        <div id="patient-avatar">
 
-                <div class="appointmentBox">
+                            <div class="patient-avatar-left">
 
+                                <p class="avatar-left-item">My Appointment's</p>
 
-                    <button class="appointment-close-btn"><img src="./icons/close-x-svgrepo-com (1).svg"
-                            alt=""></button>
+                                <div class="appointmentsBox">
+                                </div>
 
-                    <p class="appointment-text">
-                        New Appointment
-                    </p>
+                            </div>
 
-                    <button id="selectDoctor">Select doctor <img src="./icons/Vector (23).svg" alt=""></button>
+                            <div class="patient-avatar-right">
 
-                    <div class="doctorsListBox">
+                                <div class="patient-right-avatar-box">
+
+                                    <img src="./usersAvatar/defolt.png" alt="">
+
+                                    <p class="avatar-name">Saidazim</p>
+                                    <p class="avatar-id">ID:0</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <input id="appointmentDate" placeholder="Select date" type="date">
-                    <input id="appointmentTime" placeholder="Select time" type="time">
-
-                    <input id="appointmentName" placeholder="Enter Name" type="text">
-                    <input id="appointmentDescribe" placeholder="Describe Disease" type="text">
-
-                    <button id="appointmentApproved" type="button">Appointment</button>
 
                 </div>
+
+                <div class="main-wrapper-3">
+
+                    <div id="chartContainer">
+                        <canvas id="appointmentsChart"></canvas>
+                    </div>
+
+                </div>
+
+
+
 
             </div>
         </section>
 
     </main>
 
+    <div class="appointmentBox">
 
+        <button class="appointment-close-btn"><img src="./icons/close-x-svgrepo-com (1).svg" alt=""></button>
+
+        <p class="appointment-text">
+            New Appointment
+        </p>
+
+        <button id="selectDoctor">Select doctor <img src="./icons/Vector (23).svg" alt=""></button>
+
+        <div class="doctorsListBox">
+        </div>
+
+        <input id="appointmentDate" placeholder="Select date" type="date">
+        <input id="appointmentTime" placeholder="Select time" type="time">
+
+        <input id="appointmentName" placeholder="Enter Name" type="text">
+        <input id="appointmentDescribe" placeholder="Describe Disease" type="text">
+
+        <button id="appointmentApproved" type="button">Appointment</button>
+
+    </div>
+
+
+    <div id="notification" class="notification">
+        <p id="notificationText"></p>
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./patient.js"></script>
     <script>

@@ -10,12 +10,52 @@ const appointmentTime = document.getElementById(`appointmentTime`)
 const appointmentName = document.getElementById(`appointmentName`)
 const appointmentDescribe = document.getElementById(`appointmentDescribe`)
 const appointmentApproved = document.getElementById(`appointmentApproved`)
+const headerRight = document.querySelector('.header-right')
+const main = document.querySelector(`.main`)
+
+const appointmentsBoxHistory = document.querySelector(`.appointmentsBox`)
+const avatarka = document.querySelector('.patient-right-avatar-box')
 
 
 
-let appointmentList = [
 
-]
+
+function showNotification(message, duration = 3000) {
+    const notification = document.getElementById("notification");
+    const text = document.getElementById("notificationText");
+    const progressBar = document.getElementById("progressBar");
+
+    text.textContent = message;
+    notification.classList.add("show");
+    progressBar.style.width = "0%";
+
+    setTimeout(() => {
+        progressBar.style.transition = `width ${duration}ms linear`;
+        progressBar.style.width = "100%";
+    }, 10);
+
+    setTimeout(() => {
+        notification.classList.remove("show");
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0%";
+    }, duration);
+}
+
+let appointmentList = JSON.parse(localStorage.getItem("appointment")) || [];
+let currentUser = JSON.parse(localStorage.getItem("currentUser"))
+
+console.log("Зареганный пользователь:", currentUser);
+
+let avatar = document.createElement("div")
+avatar.classList = "avatar"
+
+avatar.innerHTML = `
+<img src="${currentUser.image}" alt="">
+`
+
+headerRight.append(avatar)
+
+showNotification(`Добро пожаловать ${currentUser.names}`, 3000)
 
 
 let div = document.createElement(`div`)
@@ -86,7 +126,6 @@ doctorListBtn.addEventListener(`click`, () => {
     } else {
         doctorList.classList.add(`active`)
         doctorListBtn.classList.add(`active`)
-
     }
 
 })
@@ -95,8 +134,12 @@ appointment.addEventListener(`click`, () => {
 
     if (appointmentBox.classList.contains('active')) {
         appointmentBox.classList.remove('active')
+        main.classList.remove(`active`)
+        document.body.classList.remove("active")
     } else {
         appointmentBox.classList.add('active')
+        main.classList.add(`active`)
+        document.body.classList.add("active")
 
     }
 
@@ -105,6 +148,8 @@ appointment.addEventListener(`click`, () => {
 appointmentCloseBtn.addEventListener(`click`, () => {
 
     appointmentBox.classList.remove('active')
+    main.classList.remove(`active`)
+    document.body.classList.remove("active")
 
 })
 
@@ -122,6 +167,9 @@ doctorCard.forEach(doctor => {
         doctorListBtn.classList.remove("active");
     });
 });
+
+
+
 
 
 
@@ -143,9 +191,6 @@ appointmentApproved.addEventListener(`click`, () => {
 
 
 
-
-
-
     let dateValue = appointmentDate.value
     let timeValue = appointmentTime.value
     let nameValue = appointmentName.value
@@ -161,8 +206,8 @@ appointmentApproved.addEventListener(`click`, () => {
             date: dateValue,
             time: timeValue,
             patientName: nameValue,
-            describe: describeValue
-
+            describe: describeValue,
+            patientId: currentUser.id
         }
 
         appointmentList.push(appointment)
@@ -176,7 +221,10 @@ appointmentApproved.addEventListener(`click`, () => {
         Select doctor <img src="./icons/Vector (23).svg" alt="">
         `
 
+        showNotification("Успешная запись!")
 
+        appointmentBox.classList.remove(`active`)
+        main.classList.remove('active')
 
     }
 })
@@ -184,5 +232,129 @@ appointmentApproved.addEventListener(`click`, () => {
 
 let save = JSON.parse(localStorage.getItem("appointment"))
 console.log("Сохранено", save);
+
+let monthlyCounts = Array(12).fill(0); // [0,0,0,...] для 12 месяцев
+
+save.forEach(app => {
+    let month = new Date(app.date).getMonth();
+    monthlyCounts[month] += 1;
+});
+
+console.log(monthlyCounts);
+
+const ctx = document.getElementById('appointmentsChart').getContext('2d');
+
+
+const data = {
+    labels: [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ],
+    datasets: [{
+        label: 'Appointments',
+        data: monthlyCounts,
+        backgroundColor: [
+            "rgba(46, 55, 164, 0.4)",
+            "rgba(224, 79, 22, 0.4)",
+            "rgba(76, 175, 80, 0.4)",
+            "rgba(33, 150, 243, 0.4)",
+            "rgba(255, 193, 7, 0.4)",
+            "rgba(156, 39, 176, 0.4)",
+            "rgba(0, 188, 212, 0.4)",
+            "rgba(121, 85, 72, 0.4)",
+            "rgba(205, 220, 57, 0.4)",
+            "rgba(233, 30, 99, 0.4)",
+            "rgba(150, 150, 150, 0.4)",
+            "rgba(100, 181, 246, 0.4)"
+        ],
+        borderColor: [
+            "rgba(46, 55, 164, 1)",
+            "rgba(224, 79, 22, 1)",
+            "rgba(76, 175, 80, 1)",
+            "rgba(33, 150, 243, 1)",
+            "rgba(255, 193, 7, 1)",
+            "rgba(156, 39, 176, 1)",
+            "rgba(0, 188, 212, 1)",
+            "rgba(121, 85, 72, 1)",
+            "rgba(205, 220, 57, 1)",
+            "rgba(233, 30, 99, 1)",
+            "rgba(150, 150, 150, 1)",
+            "rgba(100, 181, 246, 1)"
+        ],
+        borderWidth: 1
+    }]
+};
+
+const config = {
+    type: 'bar', // можно 'bar', 'line', 'pie', ...
+    data: data,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Appointments per Month'
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Number of Appointments'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Month'
+                }
+            }
+        }
+    }
+};
+
+const appointmentsChart = new Chart(ctx, config);
+
+let appoint = JSON.parse(localStorage.getItem("appointment"))
+
+console.log(appoint);
+
+let searchUser = appoint.filter(u => u.patientId === currentUser.id)
+
+
+console.log(searchUser);
+
+searchUser.forEach(u => {
+
+    let doctorFilter = doctors.find(d => d.id === u.doctorId)
+
+
+    let historyDiv = document.createElement(`div`)
+    historyDiv.innerHTML = `
+
+<img src="${doctorFilter.image}" alt="">
+
+                                        <p class="appOcheredText">${doctorFilter.names}<br><span>${doctorFilter.type}</span></p>
+
+                                        <p class="date">${u.date}</p>
+
+`
+
+    appointmentsBoxHistory.append(historyDiv)
+
+})
+
+
+avatarka.innerHTML = `
+<img src="./usersAvatar/defolt.png" alt="">
+
+                                    <p class="avatar-name">${currentUser.names}</p>
+                                    <p class="avatar-id">ID:${currentUser.id}</p>
+`
 
 
