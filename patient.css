@@ -142,14 +142,14 @@ body {
 }
 
 .bookings {
-    background-color: #e04f1645;
-    border: 2px solid #E04F16;
-    width: 86px;
-    height: 20px;
+    background-color: #2E37A4;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .doctorInfo {
@@ -164,10 +164,12 @@ body {
 }
 
 .bookings p {
-    font-weight: 500;
-    font-size: 12px;
-    color: #E04F16;
-    padding-bottom: 6.5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+
 }
 
 .main-wrapper-2 {
@@ -183,8 +185,8 @@ body {
     border: #E7E8EB 1px solid;
     border-radius: 6px;
     background-color: white;
-    position: absolute;
-    transform: translate(-50%, -40%);
+    position: fixed;
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     opacity: 0;
@@ -420,7 +422,7 @@ body {
     height: 373px;
     background-color: white;
     border-radius: 6px;
-    border: 1px solid #E7E8EB;
+    border: 2px solid #E7E8EB;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -56,7 +56,7 @@ avatar.innerHTML = `
 
 headerRight.append(avatar)
 
-showNotification(`Добро пожаловать ${currentUser.names}`, 3000)
+showNotification(`Welcome ${currentUser.names}`, 3000)
 
 
 let div = document.createElement(`div`)
@@ -79,7 +79,7 @@ doctors.forEach(user => {
     <p>${user.names} <br> <span>${user.type}</span></p>
     </div>
 
-<div class="bookingDiv"><div class="bookings"><p>15 Bookings</p></div></div>
+<div class="bookingDiv"><div class="bookings"><p>+</p></div></div>
     `
 
     div.append(doctorsDiv)
@@ -153,6 +153,9 @@ appointmentCloseBtn.addEventListener(`click`, () => {
     document.body.classList.remove("active")
 
 })
+
+
+
 
 let selectedDoctor = ""
 
@@ -358,4 +361,17 @@ avatarka.innerHTML = `
                                     <p class="avatar-id">ID:${currentUser.id}</p>
 `
 
+const bookings = document.querySelectorAll('.bookings')
 
+
+bookings.forEach(booking => {
+
+    booking.addEventListener(`click`, () => {
+
+        appointmentBox.classList.add(`active`)
+        main.classList.add(`active`)
+        document.body.classList.add(`active`)
+
+    })
+
+})
