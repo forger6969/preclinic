@@ -212,3 +212,34 @@
         transform: scale(1);
     }
 }
+
+.notification {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background-color: #4caf50;
+    /* зелёный */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    min-width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.notification.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 0%;
+    margin-top: 8px;
+    border-radius: 2px;
+    transition: width 0.3s linear;
+}

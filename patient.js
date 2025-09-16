@@ -20,6 +20,7 @@ const avatarka = document.querySelector('.patient-right-avatar-box')
 
 
 
+
 function showNotification(message, duration = 3000) {
     const notification = document.getElementById("notification");
     const text = document.getElementById("notificationText");
@@ -221,7 +222,7 @@ appointmentApproved.addEventListener(`click`, () => {
         Select doctor <img src="./icons/Vector (23).svg" alt="">
         `
 
-        showNotification("Успешная запись!")
+        showNotification("Successful entry!")
 
         appointmentBox.classList.remove(`active`)
         main.classList.remove('active')

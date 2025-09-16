@@ -94,7 +94,7 @@ loginBtn.addEventListener(`click`, () => {
             window.location.href = "./patient.html"
         }, 3000);
 
-        showNotification("Успешный вход!")
+        showNotification("Successful login!")
 
         let currentUser = {
             names: user.names,

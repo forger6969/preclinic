@@ -11,6 +11,31 @@ let privacybtn = document.getElementById(`privacyBtn`)
 
 let userss = JSON.parse(localStorage.getItem("userReg"))
 
+function showNotification(message, color, duration = 3000) {
+
+
+    const notification = document.getElementById("notification");
+    const text = document.getElementById("notificationText");
+    const progressBar = document.getElementById("progressBar");
+
+    text.textContent = message;
+    notification.classList.add("show");
+    progressBar.style.width = "0%";
+    notification.style.backgroundColor = color
+
+    setTimeout(() => {
+        progressBar.style.transition = `width ${duration}ms linear`;
+        progressBar.style.width = "100%";
+    }, 10);
+
+    // Скрываем уведомление
+    setTimeout(() => {
+        notification.classList.remove("show");
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0%";
+    }, duration);
+}
+
 
 function validatePasswords() {
     if (passwordInput.value && passwordConfirm.value) {
@@ -61,7 +86,7 @@ registerBtn.addEventListener(`click`, () => {
     userss.forEach(user => {
         if (emailInput.value === user.email) {
 
-            alert(`Этот mail уже зарегестрирован!`)
+            showNotification("This email is already registered" , "red")
 
         }
     })
