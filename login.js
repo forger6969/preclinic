@@ -85,6 +85,7 @@ loginBtn.addEventListener(`click`, () => {
         emailLogin.style.border = `1px solid red`
 
         showNotification("Ошибка!", "red")
+        
 
 
 
