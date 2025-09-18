@@ -205,7 +205,6 @@ appointmentApproved.addEventListener(`click`, () => {
     } else {
 
         let appointment = {
-
             doctorId: docId,
             date: dateValue,
             time: timeValue,
@@ -229,6 +228,7 @@ appointmentApproved.addEventListener(`click`, () => {
 
         appointmentBox.classList.remove(`active`)
         main.classList.remove('active')
+        document.body.classList.remove('active')
 
     }
 })
@@ -237,7 +237,7 @@ appointmentApproved.addEventListener(`click`, () => {
 let save = JSON.parse(localStorage.getItem("appointment"))
 console.log("Сохранено", save);
 
-let monthlyCounts = Array(12).fill(0); // [0,0,0,...] для 12 месяцев
+let monthlyCounts = Array(12).fill(0);
 
 save.forEach(app => {
     let month = new Date(app.date).getMonth();
@@ -328,8 +328,7 @@ let appoint = JSON.parse(localStorage.getItem("appointment"))
 
 console.log(appoint);
 
-let searchUser = appoint.filter(u => u.patientId === currentUser.id)
-
+let searchUser = appoint.filter(u => u.patientId == currentUser.id)
 
 console.log(searchUser);
 

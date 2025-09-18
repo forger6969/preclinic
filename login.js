@@ -73,29 +73,32 @@ function checkPassword() {
 
 loginBtn.addEventListener(`click`, () => {
 
-    const userAll = users.find(u => u.role === "patient")
+    const userAll = users.filter(u => u.role === "patient")
     const user = users.find(u => u.email === emailLogin.value.trim());
+    console.log('Пациенты', userAll);
 
 
-    console.log(user);
+    console.log("CurrentUser", user);
 
 
+    userAll.forEach(pat => {
 
-    if (emailLogin.value !== userAll.email) {
-        emailLogin.style.border = `1px solid red`
+        if (emailLogin.value !== userAll.email) {
+            emailLogin.style.border = `1px solid red`
 
-        showNotification("Ошибка!", "red")
-        
+            showNotification("Ошибка!", "red")
 
+        }
 
+    })
 
-    } else if (passwordLogin.value === user.password) {
+    if (passwordLogin.value === user.password) {
 
         setTimeout(() => {
             window.location.href = "./patient.html"
         }, 3000);
 
-        showNotification("Successful login!")
+        showNotification("Successful login!", "green")
 
         let currentUser = {
             names: user.names,
@@ -112,7 +115,11 @@ loginBtn.addEventListener(`click`, () => {
 
     } else if (passwordLogin.value !== user.password) {
         passwordLogin.style.border = `1px solid red`
+
+
+
     }
+
 
 
 

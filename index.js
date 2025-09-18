@@ -109,7 +109,7 @@ registerBtn.addEventListener(`click`, () => {
 
         userss.push(newUser)
 
-        console.log(userss)
+        console.log("reg1", userss)
 
 
         localStorage.setItem("userReg", JSON.stringify(userss));
