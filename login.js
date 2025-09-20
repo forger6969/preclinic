@@ -86,7 +86,8 @@ loginBtn.addEventListener(`click`, () => {
         if (emailLogin.value !== userAll.email) {
             emailLogin.style.border = `1px solid red`
 
-            showNotification("Ошибка!", "red")
+            showNotification("Error!", "red")
+            
 
         }
 
