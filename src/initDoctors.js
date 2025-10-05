@@ -55,7 +55,3 @@ InitDoctors.forEach((doc) => {
 })
 
 localStorage.setItem("userReg", JSON.stringify(existingUsers))
-
-
-
-

@@ -107,7 +107,7 @@ body {
     height: fit-content;
     background-color: white;
     border: 2px solid #E7E8EB;
-    border-radius: 6px;
+    border-radius: 12px;
     box-shadow: 0 1px 1px 0 #E7E8EB;
     padding: 20px;
     display: flex;
@@ -421,7 +421,7 @@ body {
     width: 850px;
     height: 373px;
     background-color: white;
-    border-radius: 6px;
+    border-radius: 12px;
     border: 2px solid #E7E8EB;
     display: flex;
     align-items: center;
@@ -461,12 +461,14 @@ body {
 }
 
 #chartContainer {
-    height: 800px;
+    height: 650px;
     margin: 0 auto;
     max-width: 100%;
-    width: 100%;
+    width: 93%;
     display: flex;
     transition: 300ms all ease;
+    background-color: white;
+    border-radius: 12px;
 }
 
 #appointmentsChart {
